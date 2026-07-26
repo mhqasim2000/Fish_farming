@@ -1,0 +1,26 @@
+const express = require('express');
+const router = express.Router();
+const sql = require('mssql');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+//sab se phly ham ne node ki library se installed express router sql bycrypt or sql ko import kiya or inka instance bna liya 
+
+    bycrypt
+//bycrypt ka kaam password ko hash mn convert krna hota hy
+    
+    Router
+//Router k  through ham decide krty hyn k kon sy route p kiya show krna hy ..jese login page k liya /login route work krta hai etc
+
+     JWT
+//jwt token Server ki security k liye hota hai....jab ham login krty hain to browser ko aik token assign kiya jata hai jwt token aik limit tak valid rehta hai usky bad wo expire ho jata hai..agar limit k bad ham logout na b krein to yeh show hota hai jwt token expire ho gya hy
+
+const JWT_SECRET = process.env.JWT_SECRET || 'YOUR_SECRET_KEY';
+//is line mn ham ENV file se Jwt ki secret key ko fetch kr rhy hyn ..is ky k through token generate hoty hyn
+
+//agar JWT na ho, toh hamein user ki ID ya password baar-baar internet par bhejna parega, jahan hacker usay raste mein pakar sakta hai (Man-in-the-Middle attack). JWT aik "Signed" cheez hai, agar hacker usay raste mein badalta hai, toh server usay pehchan leta hai.
+
+//login k bad server stateless ho jata hai..server ko nahi yad k is user ne login kiya hai..user idenity ko internet mn maintain rkhny k liye jwt token use kiye jaty hyn
+ jwt token server ki security k liye use kiya jata hai ..jab user login krta hy to JWT secret key k through session ko aikn signature assign kiya jata hai..or ye signature tab tak valid rehta hai jab tak user login rhy ya token ki limit khatam na ho jye...jwt asal mn user ki identity ko yaad rkhta hy jabb b ham data fetch ya post krty hyn jwt k baghair hamain har action p login krna prry ga jwt user identity ko yaad rkhta hy apna asssigned signature kko secret key se match krta hy
+
+
+acha hashing aese perform hoti hy k user password enter krta hy bycrypt k through us password k thrugh  us password k sath Salt attach kiya jata hai..salt random data hota hy jo user k enter kiiye huway password k sath attach hojata hai ab us salt password p mathematical bycription algorithm perform hota hy....jis se password scramble ho jata hy or ye kam mukhtalif rounds mn hota hy jese ham ne 2 power 10 round add kiye 10 barr password scramble ho ga or db mn store ho jy ga

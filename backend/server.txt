@@ -1,0 +1,92 @@
+      Express
+
+const express=require('express');
+//Express is a frame work used for web application...Express provides tools and structures to develop Apis Quicky
+//Tools Used in Express:
+//Routing:Handling different URL requests and response(Roting se response handle kiya jata hai mk kis Url p kiya  response dena kiya data show krna hai)
+
+//Middleware:Middle ware works between Request and response..for example when we try to login user submit credentials....the user send request by submitting credentials...now middle come ...middle ware checks body parser and format of the credentials provided by the user ....if the format is correct they are moved to authentication logic to check correctness of credentials  if the are correct backend respond with login other wise failed
+//Middle ware also check the valididity of tokens and sessions if Correct it calls the next() function and moves to the next page  e.g  after checking credentials validity of tokens and sessions ....user is directes to dashboard page
+
+//Error Handling:agar code men koi issue hai to express server ko crash hony se bachat hai or aik error message ko send krta hai
+
+//MVC Pattern: Express allows to create seperate files for model view controller
+
+     Cors(Cross Origin Resource Sharing)
+
+const cors = require('cors');
+//Cors Is a browser policy that confirms security between 2 Ports
+//(Cors Browser ki aik safety policy hai jo 2 ports k darmyan safety provide krta hai)
+
+//HOW IT WORKS:
+//lIKE we have a front end port 3000 and a backend port 5000....when frontendd try to fetch data from backend port 5000...browser  checks that data is 
+going from 3000 to 5000 port so it blocks the data....SO To handle this Cors is used...
+//CORS works as a middle ware between 2 ports
+
+
+    DOTENV
+
+require('dotenv').config();
+//Dotenv is a package that is used to store environment variables in a .env file
+//Ye wo tool hai jo project ki sensitive data or info ko store krny k liye use hota hai Password,Port,Secret API keys...
+in Credentials ko ham Open ko code mn nahi add krskty is sari info
+
+
+   POOL PROMISE
+
+
+
+
+
+
+
+
+
+   const app=express();
+//const :is used ta k purri application mn app ka variable purri application mn Express hi rhy it cannot be changed to anyother variable
+..agar ham let ya var use krein g to app ko express se change kr k kuch or b declare kia ja skta handling
+//app:  app k illawa kisi or name se b variable create kiya ja skta hai jese const server etc..
+//express():express() is function in express library ......express () se server initilaize ho jata hai jo aik envionment prepare krta hai k Sql se data fetch ya data send kia ja skta hai....server initialize kr k ham put post functions use kr k database mn CRUD ops perform kr skty hyn or mukhtalif formalites jaise routing middleware or error handling easily manage kr skty hyn
+
+
+app.use(cors())
+
+//Cors Works as Middleware
+//ok app.use(cors()) se ham express server initilze krny k bad  app ko cors ki access de k front end or bacjend mn communication k liye cors k through bridge provide krty ynjis se browser frontend or backend mn communicate krny ki permission deta hai
+
+
+app.use(express.json());
+//acha matlab ye k ham ne water paramenters frontend p log kiye\....theek submit kiya to wo raw text k format mn internet p travel kiya...backend is raw text ko nahi smjhta..to express.json k through raw text ko java script object translate kiya jata hy ta k bbackend k liye read able ho?
+
+
+res.json();
+//when we try to get data from backend..it converts backend java script object data into front end readable raw json data
+     
+
+
+       async
+Sir, async function aik Non-blocking function hota hai. Yeh execution ko sirf apne function ke andar (jahan await likha ho) query ke khatam hone tak rokta hai, taake sahi data mil sakay. Lekin function se bahar ka whole code aur doosre users ki requests execute hoti rehti hain."
+
+       sync
+Snyc is a non blocking function which stops the whole server from exection until the query is not completed
+
+
+      req and res
+//.....req that is submitted by the user from frontend and res is the response from backend
+
+
+req.pool
+jab frontend se koi request aati hai to res.pool check krta hy k pool mn available conn hy?
+
+
+next()
+//Jab await poolPromise apna kaam khatam kar leta hai, toh next() ka kaam hota hai request ko aglay station (Route) par bhej dena jahan wo query mojood hai jo user ne chalani hai.
+//if we forget next it will show a spinning loading wheel because it doenst know where to direct
+
+res.status(): res.status request k result mn any waly response ko show krta hy jese 200 mtlb request succesfuly handle ho gye ya 500 server error agya
+res.send() browser p messag show krwany k liye hota hy..
+
+err.stack show krta hy k backend ki kis file ya kis line mn error hy
+
+sql.connect()
+sql.connect k through har user apny liye aik alag connection kholny ki try krta hai?

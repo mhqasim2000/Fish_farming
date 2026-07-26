@@ -1,0 +1,25 @@
+Config is used as a connection between DB and Backend.....
+is mn ENv ki file se inverionmental variable pass kiye jaty hyn jese DBName Server Name,DbPAssword,Port etc...ta k backend ko pta ho ko 
+in credentials k sath connect kiya sky....
+
+
+env.process:
+             Env.process is liye use kiya jata hai ta k hamaray server or password ki details secure rahain
+
+
+const poolPromise = new sql.ConnectionPool(dbConfig)
+//through this  backend mn mukhtalif database connection ka pool create hota hai .  ta k agar aik connection in use or dusra user aye to wait krny k bjye pool se already created connections mn se connection use krly
+ 
+ connect();
+ through this backend database se connect hony ki try krta hai or execution tk wait krta hai
+
+  .then(pool => {
+    //agar connection create ho jye to .then flow ko continue rkta haiconsole p show ho jye ga k connectio ho gya hy
+        console.log('✅ Connected to SQL Server: FishFarmDB');
+        return pool;
+    })
+    .catch(err => {
+        //agar koi error ajye to ye block usko catch kr k console p display krwa de ga
+        console.error('❌ Database Connection Failed!', err.message);
+        // Don't exit here, let the app show the error via middleware
+    });
